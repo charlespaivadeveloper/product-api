@@ -3,6 +3,7 @@ package br.com.grupomateus.product.api.adapter.repository;
 import br.com.grupomateus.product.api.domain.model.Produto;
 import br.com.grupomateus.product.api.domain.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
@@ -26,8 +27,8 @@ public class ProdutoRepositoryImpl implements ProdutoRepository {
     }
 
     @Override
-    public List<Produto> findAll(PageRequest pageRequest) {
-        return jpaProdutoRepository.findAll();
+    public Page<Produto> findAll(PageRequest pageRequest) {
+        return jpaProdutoRepository.findAll(pageRequest);
     }
 
     @Override
