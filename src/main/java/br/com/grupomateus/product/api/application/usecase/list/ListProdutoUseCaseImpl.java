@@ -26,7 +26,7 @@ public class ListProdutoUseCaseImpl implements ListProdutoUseCase {
     public PageResultDTO<ProdutoDTO> execute(PageRequestDTO pageRequestDTO) {
         ProdutoRepository produtoRepository = daoFactory.getProdutoRepository();
         PageRequest pageRequest = PageRequest.of(pageRequestDTO.getPage(), pageRequestDTO.getSize());
-        Page<Produto> produtoPage = (Page<Produto>) produtoRepository.findAll(pageRequest);
+        Page<Produto> produtoPage = produtoRepository.findAll(pageRequest);
 
         List<ProdutoDTO> content = produtoPage.getContent()
                 .stream()
